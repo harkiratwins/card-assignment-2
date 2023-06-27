@@ -1,7 +1,6 @@
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Modal from "react-bootstrap/Modal";
+import { Modal, Form } from "react-bootstrap";
+import Buttons from "../Button";
 
 function NewCard() {
   const [show, setShow] = useState(false);
@@ -44,7 +43,7 @@ function NewCard() {
           <div className="col d-flex justify-content-center">
             <h1>Appointment Card UI</h1>
             <div style={{ marginLeft: "50px", marginTop: "7px" }}>
-              <Button onClick={handleShow}>+</Button>
+              <Buttons onClick={handleShow} text="+"></Buttons>
             </div>
           </div>
         </div>
@@ -148,9 +147,9 @@ function NewCard() {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
+            <Buttons variant="primary" type="submit" text="Submit">
+              
+            </Buttons>
           </Form>
         </Modal.Body>
       </Modal>
@@ -172,13 +171,13 @@ function NewCard() {
                       <div className="user-info__basic">
                         <h5 className="mb-0">
                           {e.name}
-                          <button
+                          <Buttons
                             onClick={() => deleteTask(index)}
                             className="btn btn-sm btn-outline-danger"
-                            style={{ marginLeft: "70px" }}
+                            style={{ marginLeft: "70px" }} text="Delete"
                           >
-                            Delete
-                          </button>
+                           
+                          </Buttons>
                         </h5>
                         <div class="d-flex">
                           <p className="text-muted mb-0">
@@ -188,11 +187,11 @@ function NewCard() {
                       </div>
                     </div>
                     <div className="d-flex">
-                      <h6>{e.contact}</h6>
+                      <h6 style={{ marginLeft: 10 }}>{e.contact}</h6>
                     </div>
                     <div className="d-flex">
                       <a style={{ textDecoration: "none" }} href="#!">
-                        <h6>Contact</h6>
+                        <h6 style={{ marginLeft: 10 }}>Contact</h6>
                       </a>
                     </div>
 
