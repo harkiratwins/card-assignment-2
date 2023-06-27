@@ -43,7 +43,7 @@ function NewCard() {
           <div className="col d-flex justify-content-center">
             <h1>Appointment Card UI</h1>
             <div style={{ marginLeft: "50px", marginTop: "7px" }}>
-              <Buttons onClick={handleShow} text="+"></Buttons>
+              <Buttons class="btn btn-primary" onClick={handleShow} text="+"></Buttons>
             </div>
           </div>
         </div>
@@ -146,10 +146,10 @@ function NewCard() {
                 onChange={onHandleChange}
               />
             </Form.Group>
-
-            <Buttons variant="primary" type="submit" text="Submit">
-              
+            <div class="modal-footer">
+            <Buttons class="btn btn-primary" type="submit" text="Submit">
             </Buttons>
+            </div>
           </Form>
         </Modal.Body>
       </Modal>
