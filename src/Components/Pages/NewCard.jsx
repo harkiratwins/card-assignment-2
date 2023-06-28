@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Modal, Form } from "react-bootstrap";
+import { Modal, Form, Row, Col } from "react-bootstrap";
 import Buttons from "../Button";
 
 function NewCard() {
@@ -43,7 +43,11 @@ function NewCard() {
           <div className="col d-flex justify-content-center">
             <h1>Appointment Card UI</h1>
             <div style={{ marginLeft: "50px", marginTop: "7px" }}>
-              <Buttons class="btn btn-primary" onClick={handleShow} text="+"></Buttons>
+              <Buttons
+                class="btn btn-primary"
+                onClick={handleShow}
+                text="+"
+              ></Buttons>
             </div>
           </div>
         </div>
@@ -76,18 +80,32 @@ function NewCard() {
                 onChange={onHandleChange}
               />
             </Form.Group>
-
-            <Form.Group className="mb-3" controlId="age">
-              <Form.Label>Age</Form.Label>
-              <Form.Control
-                type="number"
-                placeholder="Enter your age"
-                required
-                name="age"
-                onChange={onHandleChange}
-              />
-            </Form.Group>
-
+            <Row>
+              <Col>
+                <Form.Group className="mb-3 " controlId="age">
+                  <Form.Label>Age</Form.Label>
+                  <Form.Control
+                    type="number"
+                    placeholder="Enter your age"
+                    required
+                    name="age"
+                    onChange={onHandleChange}
+                  />
+                </Form.Group>
+              </Col>
+              <Col>
+                <Form.Group className="mb-3" controlId="contact">
+                  <Form.Label>Contact</Form.Label>
+                  <Form.Control
+                    type="tel"
+                    placeholder="Enter your contact number"
+                    required
+                    name="contact"
+                    onChange={onHandleChange}
+                  />
+                </Form.Group>
+              </Col>
+            </Row>
             <Form.Group className="mb-3" controlId="gender">
               <Form.Label>Gender</Form.Label>
               {["radio"].map((type) => (
@@ -116,39 +134,36 @@ function NewCard() {
               ))}
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="contact">
-              <Form.Label>Contact</Form.Label>
-              <Form.Control
-                type="tel"
-                placeholder="Enter your contact number"
-                required
-                name="contact"
-                onChange={onHandleChange}
-              />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="time">
-              <Form.Label>Time</Form.Label>
-              <Form.Control
-                type="time"
-                required
-                name="time"
-                onChange={onHandleChange}
-              />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="date">
-              <Form.Label>Date</Form.Label>
-              <Form.Control
-                type="date"
-                required
-                name="date"
-                onChange={onHandleChange}
-              />
-            </Form.Group>
+            <Row>
+              <Col>
+                <Form.Group className="mb-3" controlId="time">
+                  <Form.Label>Time</Form.Label>
+                  <Form.Control
+                    type="time"
+                    required
+                    name="time"
+                    onChange={onHandleChange}
+                  />
+                </Form.Group>
+              </Col>
+              <Col>
+                <Form.Group className="mb-3" controlId="date">
+                  <Form.Label>Date</Form.Label>
+                  <Form.Control
+                    type="date"
+                    required
+                    name="date"
+                    onChange={onHandleChange}
+                  />
+                </Form.Group>
+              </Col>
+            </Row>
             <div class="modal-footer">
-            <Buttons class="btn btn-primary" type="submit" text="Submit">
-            </Buttons>
+              <Buttons
+                class="btn btn-primary"
+                type="submit"
+                text="Submit"
+              ></Buttons>
             </div>
           </Form>
         </Modal.Body>
@@ -168,24 +183,22 @@ function NewCard() {
                       <div className="user-info__img">
                         <img src={e.pic} alt="User Img" />
                       </div>
-                      <div className="user-info__basic">
-                        <h5 className="mb-0">
-                          {e.name}
-                          <Buttons
-                            onClick={() => deleteTask(index)}
-                            className="btn btn-sm btn-outline-danger"
-                            style={{ marginLeft: "70px" }} text="Delete"
-                          >
-                           
-                          </Buttons>
-                        </h5>
-                        <div class="d-flex">
-                          <p className="text-muted mb-0">
-                            {e.age}, {e.gender}
-                          </p>
-                        </div>
+                      <div className="user-info__basic me-auto">
+                        <h5 className="mb-0">{e.name}</h5>
+                        <p className="text-muted ">
+                          {e.age}, {e.gender}
+                        </p>
+                      </div>
+                      <div>
+                        {" "}
+                        <Buttons
+                          onClick={() => deleteTask(index)}
+                          className="btn btn-sm btn-outline-danger"
+                          text="Delete"
+                        ></Buttons>
                       </div>
                     </div>
+
                     <div className="d-flex">
                       <h6 style={{ marginLeft: 10 }}>{e.contact}</h6>
                     </div>
