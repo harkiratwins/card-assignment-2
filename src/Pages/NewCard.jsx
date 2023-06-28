@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Modal, Form, Row, Col } from "react-bootstrap";
-import Buttons from "../Button";
+import Buttons from "../Components/Button";
 
 function NewCard() {
   const [show, setShow] = useState(false);

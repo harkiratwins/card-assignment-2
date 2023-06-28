@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import NewCard from './Components/Pages/NewCard.jsx';
+import NewCard from './Pages/NewCard';
 
 function App() {
   return (
