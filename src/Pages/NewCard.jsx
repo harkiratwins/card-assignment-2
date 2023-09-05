@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Modal, Form, Row, Col } from "react-bootstrap";
 import Buttons from "../Components/Button";
+import Cards from "../Components/Cards";
 
 function NewCard() {
   const [show, setShow] = useState(false);
@@ -174,53 +175,17 @@ function NewCard() {
           {Record.map((e, index) => {
             return (
               <>
-                <div className="col-sm-6 col-md-6 col-lg-4">
-                  <div
-                    className="card bg-white p-3 mb-4 shadow"
-                    style={{ height: 200 }}
-                  >
-                    <div className="d-flex justify-content-between mb-4">
-                      <div className="user-info__img">
-                        <img src={e.pic} alt="User Img" />
-                      </div>
-                      <div className="user-info__basic me-auto">
-                        <h5 className="mb-0">{e.name}</h5>
-                        <p className="text-muted ">
-                          {e.age}, {e.gender}
-                        </p>
-                      </div>
-                      <div>
-                        {" "}
-                        <Buttons
-                          onClick={() => deleteTask(index)}
-                          className="btn btn-sm btn-outline-danger"
-                          text="Delete"
-                        ></Buttons>
-                      </div>
-                    </div>
-
-                    <div className="d-flex">
-                      <h6 style={{ marginLeft: 10 }}>{e.contact}</h6>
-                    </div>
-                    <div className="d-flex">
-                      <a style={{ textDecoration: "none" }} href="#!">
-                        <h6 style={{ marginLeft: 10 }}>Contact</h6>
-                      </a>
-                    </div>
-
-                    <div className="d-flex justify-content-between mt-1">
-                      <div>
-                        <h5 style={{ marginLeft: 10 }}>
-                          {e.time}
-                          <small style={{ marginLeft: 10 }}>{e.date}</small>
-                        </h5>
-                      </div>
-                      <span className="text-success font-weight-bold">
-                        Consult
-                      </span>
-                    </div>
-                  </div>
-                </div>
+              <Cards
+                pic={e.pic}
+                name={e.name}
+                age={e.age}
+                gender={e.gender}
+                contact={e.contact}
+                time={e.time}
+                date={e.date}
+                title='consult'
+                onClick={deleteTask}
+                />
               </>
             );
           })}
